@@ -1,0 +1,296 @@
+/* ==========================================================================
+   RAMA VASAVI - PROFESSIONAL ANIMATED LOADING SCREEN
+   Theme: Dark Navy & Gradient Minimalist Opening Experience
+   ========================================================================== */
+
+/* Full-screen backdrop overlay */
+.loading-screen-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #070a12;
+  background-image: 
+    radial-gradient(ellipse 90% 70% at 50% 45%, #0e1629 0%, #080c16 60%, #04060a 100%);
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, visibility;
+  user-select: none;
+}
+
+/* Smooth fade out when progress is 100% and hold completed */
+.loading-screen-backdrop.is-fading-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Ambient Glow Effects (Subtle Blue & Purple Aura)
+   -------------------------------------------------------------------------- */
+.loading-ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  will-change: transform, opacity;
+}
+
+.loading-ambient-orb.orb-blue {
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(59, 130, 246, 0.08) 50%, transparent 70%);
+  top: 20%;
+  left: 50%;
+  transform: translate(-65%, -30%);
+  animation: orbFloatBlue 7s ease-in-out infinite alternate;
+}
+
+.loading-ambient-orb.orb-purple {
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(99, 102, 241, 0.07) 50%, transparent 70%);
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-35%, 25%);
+  animation: orbFloatPurple 8s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloatBlue {
+  0% {
+    transform: translate(-65%, -30%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-60%, -24%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes orbFloatPurple {
+  0% {
+    transform: translate(-35%, 25%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-40%, 18%) scale(1.06);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Center Content Card
+   -------------------------------------------------------------------------- */
+.loading-center-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 620px;
+  padding: 2.5rem 1.5rem;
+  animation: loadingContentEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes loadingContentEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 1. Small Heading: "LOADING PORTFOLIO" */
+.loading-eyebrow {
+  font-family: var(--font-body, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  opacity: 0.9;
+}
+
+/* 2. Main Name: "Rama Vasavi" with Blue → Purple → Pink Gradient */
+.loading-name {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
+  font-size: clamp(2.35rem, 5.5vw, 3.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 0.85rem 0;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 48%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: -0.025em;
+  text-align: center;
+  filter: drop-shadow(0 4px 20px rgba(99, 102, 241, 0.3));
+}
+
+/* 3. Role: "Java Full Stack Developer" */
+.loading-role {
+  font-family: var(--font-body, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 500;
+  color: #f1f5f9;
+  letter-spacing: 0.015em;
+  margin: 0 0 2.5rem 0;
+  text-align: center;
+  opacity: 0.95;
+}
+
+/* 4. Progress Bar */
+.loading-progress-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 0.95rem auto;
+}
+
+.loading-progress-track {
+  width: 100%;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.loading-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8 0%, #6366f1 52%, #a855f7 100%);
+  border-radius: 999px;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.7), 0 0 6px rgba(56, 189, 248, 0.6);
+  transition: width 0.06s linear;
+  will-change: width;
+}
+
+/* 5. Percentage Indicator */
+.loading-percentage-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.loading-percentage {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  min-width: 3.5ch;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Styling
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .loading-center-card {
+    padding: 2rem 1.25rem;
+    max-width: 92vw;
+  }
+
+  .loading-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    margin-bottom: 1.1rem;
+  }
+
+  .loading-name {
+    font-size: clamp(2.1rem, 7vw, 2.75rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .loading-role {
+    font-size: 1.05rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .loading-progress-wrapper {
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-center-card {
+    padding: 1.75rem 1rem;
+    max-width: 95vw;
+  }
+
+  .loading-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 1rem;
+  }
+
+  .loading-name {
+    font-size: 1.95rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .loading-role {
+    font-size: 0.98rem;
+    margin-bottom: 2rem;
+  }
+
+  .loading-progress-wrapper {
+    max-width: min(290px, 84vw);
+    margin-bottom: 0.85rem;
+  }
+
+  .loading-progress-track {
+    height: 6px;
+  }
+
+  .loading-percentage {
+    font-size: 0.88rem;
+  }
+
+  .loading-ambient-orb.orb-blue,
+  .loading-ambient-orb.orb-purple {
+    width: 280px;
+    height: 280px;
+    filter: blur(70px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: prefers-reduced-motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen-backdrop {
+    transition: opacity 0.2s ease, visibility 0.2s ease !important;
+  }
+
+  .loading-ambient-orb {
+    animation: none !important;
+  }
+
+  .loading-center-card {
+    animation: none !important;
+  }
+
+  .loading-progress-fill {
+    transition: none !important;
+  }
+}

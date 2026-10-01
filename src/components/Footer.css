@@ -1,0 +1,122 @@
+/* ==========================================================================
+   RAMA VASAVI - PORTFOLIO FOOTER & VISITOR ANALYTICS DISPLAY
+   Theme: Dark Navy, Clean Minimalist, Subtle Accent Glow
+   ========================================================================== */
+
+.portfolio-footer {
+  width: 100%;
+  background-color: var(--bg-primary, #090d16);
+  border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  padding: 28px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-size: 0.88rem;
+  color: var(--text-muted, #64748b);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   VISITOR ANALYTICS DISPLAY: [ 👁 Visitors ]
+   -------------------------------------------------------------------------- */
+.visitor-analytics-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--bg-card, #111a2e);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 12px rgba(99, 102, 241, 0.1);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms ease,
+              box-shadow 200ms ease,
+              background-color 200ms ease;
+  user-select: none;
+  cursor: default;
+}
+
+.visitor-analytics-card:hover {
+  transform: translateY(-1.5px);
+  border-color: rgba(99, 102, 241, 0.55);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 16px rgba(99, 102, 241, 0.22);
+  background: var(--bg-card-hover, #152038);
+}
+
+/* Subtle live pulse indicator */
+.visitor-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.7);
+  flex-shrink: 0;
+}
+
+.visitor-card-icon {
+  color: var(--accent-cyan, #38bdf8);
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+
+.visitor-analytics-card:hover .visitor-card-icon {
+  transform: scale(1.08);
+}
+
+.visitor-card-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary, #94a3b8);
+  transition: color 200ms ease;
+}
+
+.visitor-analytics-card:hover .visitor-card-label {
+  color: var(--text-primary, #f8fafc);
+}
+
+/* Light Theme Support */
+[data-theme="light"] .visitor-analytics-card {
+  background: #ffffff;
+  border-color: rgba(79, 70, 229, 0.25);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .visitor-analytics-card:hover {
+  background: #f8fafc;
+  border-color: rgba(79, 70, 229, 0.45);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1), 0 0 12px rgba(79, 70, 229, 0.15);
+}
+
+/* Responsive on Mobile */
+@media (max-width: 640px) {
+  .portfolio-footer {
+    padding: 24px 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .visitor-analytics-card {
+    padding: 5px 12px;
+  }
+
+  .visitor-card-label {
+    font-size: 0.78rem;
+  }
+}
